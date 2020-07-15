@@ -2,7 +2,7 @@ colorama==0.3.9
 colormap==1.0.1
 easydev==0.9.35
 jieba==0.39
-Jinja2==2.9.6
+Jinja2>=2.10.1
 MarkupSafe==1.0
 numpy==1.13.3
 pandas==0.21.0
