@@ -4,12 +4,6 @@
 
 This component takes a csv format review data set and outputs valid reviews and their summaries in json file.
 
-# install
-
-```
-git clone git@gitlab.com:zyj-group/zyj-review-processor.git
-```
-
 # Usage
 require python 3.
 When specify directories as input, the max depth of that directory should be 2.
