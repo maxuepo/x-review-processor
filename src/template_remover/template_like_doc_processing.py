@@ -5,20 +5,22 @@ from util import ReviewUtil
 from sklearn.feature_extraction.text import CountVectorizer
 import os
 import pandas as pd
-from base_task import BaseTask
+from common.base_task import BaseTask
 
 
 class TemplateRemovalTask(BaseTask):
-    def __init__(self, template_path, input_path, site='jd', threshold=0.7, ext=".csv"):
-        BaseTask.__init__(self)
-        self.tempplate_path = template_path
+    """
+    Class for removing template like reviews.
+    """
+    def __init__(self, template_path, input_path, site='jd', threshold=0.7, ext='.csv'):
+        self.supper.__init__(self)
+        self.template_path = template_path
         self.input_path = input_path
         self.ext = ext
-        self.df_fake_reviews = pd.read_csv(self.tempplate_path, sep=",")
+        self.df_fake_reviews = pd.read_csv(self.template_path, sep=",")
         self.df_fake_reviews[['id']] = self.df_fake_reviews[['id']].astype(int)
         self.threshold = threshold
         self.site = site
-
         self.vectorizer = CountVectorizer()
         self.transformer = TfidfTransformer()
         self.vect = TfidfVectorizer(min_df=1)
@@ -50,9 +52,9 @@ class TemplateRemovalTask(BaseTask):
             filename = os.path.basename(str(f)).split(".")[0]
             (fake, rest) = self.filter_out_template_like(df)
             rest_filtered = rest.loc[rest.id.notnull()]
-            outputpath_fake = ReviewUtil.get_output_path(str(f), filename, "fake")
+            output_path_fake = ReviewUtil.get_output_path(str(f), filename, "fake")
             outputpath_rest = ReviewUtil.get_output_path(str(f), filename, "rest")
-            output_file_fake = open(outputpath_fake, "w+")
+            output_file_fake = open(output_path_fake, "w+")
             output_file_rest = open(outputpath_rest, "w+")
             fake.to_csv(output_file_fake, index=False)
             rest_filtered.to_csv(output_file_rest, index=False)

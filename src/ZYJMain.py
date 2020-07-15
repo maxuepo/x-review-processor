@@ -2,7 +2,7 @@
 import argparse
 from repeated_review_detection import ReviewDedupTask
 from template_like_doc_processing import TemplateRemovalTask
-from ReviewClassifier import ReviewClassifyer
+from classifier.ReviewClassifier import ReviewClassifyer
 from report import Report
 from base_task import BaseTask
 
