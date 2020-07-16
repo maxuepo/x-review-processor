@@ -11,21 +11,17 @@ class BaseTask:
     str_params = {}
 
     def __init__(self):
-        self.config_path = 'resource/configs/parameters.ini'
+        self.config_path = '../../resource/configs/parameters.ini'
         self.config = configparser.ConfigParser()
         self.config.read(self.config_path)
-
         for entry in self.config['NUMERICAL']:
             self.numerical_params[entry] = float(self.config['NUMERICAL'][entry])
-
         for entry in self.config['LIST']:
             lst = self.config['LIST'][entry].split(',')
             self.list_params[entry] = lst
-
         for entry in self.config['STRING']:
             self.str_params[entry] = self.config['STRING'][entry]
-
-        fileConfig('logging.ini')
+        fileConfig('../../resource/configs/logging.ini')
         self.logger = logging.getLogger()
 
     def read_csv(self, path, delimitter="\t"):

@@ -1,9 +1,10 @@
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
+
+from common.base_task import BaseTask
 from util import ReviewUtil
-from sklearn.feature_extraction.text import CountVectorizer
-import numpy as np
-from base_task import BaseTask
 
 
 class TopicVerification(BaseTask):

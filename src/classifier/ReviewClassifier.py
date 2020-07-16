@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 import _pickle as cPickle
 from topicscore import TopicVerification
-from base_task import BaseTask
+from common.base_task import BaseTask
 
 
 class ReviewClassifyer(BaseTask):

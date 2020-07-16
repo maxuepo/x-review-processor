@@ -5,7 +5,7 @@ import numpy as np
 import ntpath
 import pandas as pd
 import os
-from base_task import BaseTask
+from common.base_task import BaseTask
 import sys
 
 

@@ -1,20 +1,22 @@
 from __future__ import print_function
-import re
-from pathlib import Path
-import jieba
-import sys
-import pandas as pd
-from pandas.parser import CParserError
-from pandas.errors import EmptyDataError
+
+import ast
 import os
+import re
+import sys
+from datetime import datetime
 from hashlib import md5
 from hashlib import sha1
 from hashlib import sha224
 from hashlib import sha384
 from hashlib import sha512
+from pathlib import Path
+
+import jieba
 import numpy as np
-from datetime import datetime
-import ast
+import pandas as pd
+from pandas.errors import EmptyDataError
+from pandas.parser import CParserError
 
 
 class ReviewUtil:
