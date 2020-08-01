@@ -27,13 +27,11 @@ class ReviewDedupTask(BaseTask):
     def find_similar_reviews(self, df, threshold):
         visited = set()
         output_df_repeated = list()
-
         all_temp = set()
         if df.empty:
+            self.logger.warn('Input dataframe is empty! Returning returning empty dataframe!')
             return pd.DataFrame()
-        df.loc[:, 'content'] = df['content'].apply(lambda content: content.strip())
-        df_dft = df.loc[df['content'].isin(self.sys_default_reviews)]
-        df_input = df.loc[~df['content'].isin(self.sys_default_reviews)].reset_index(drop=True)
+        df_dft, df_input = self.pre_process(df)
         vect = TfidfVectorizer(min_df=1)
         doc_word_split = df_input['content'].apply(lambda t: ReviewUtil.spaced_words(t))
         chn_only_doc = doc_word_split.apply(lambda x: ReviewUtil.chn_char_only(x))
@@ -93,3 +91,9 @@ class ReviewDedupTask(BaseTask):
             file_default.close()
             file_repeated.close()
             file_nonrepeated.close()
+
+    def pre_process(self, df: pd.DataFrame) -> pd.DataFrame:
+        df.loc[:, 'content'] = df['content'].apply(lambda content: content.strip())
+        df_dft = df.loc[df['content'].isin(self.sys_default_reviews)]
+        df_input = df.loc[~df['content'].isin(self.sys_default_reviews)].reset_index(drop=True)
+        return df_dft, df_input

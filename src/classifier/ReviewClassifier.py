@@ -11,11 +11,15 @@ from common.base_task import BaseTask
 
 
 class ReviewClassifyer(BaseTask):
-    def __init__(self, labeled_data_dir, input_path, site, ext=".csv"):
+    def __init__(self,
+                 labeled_data_dir: str,
+                 input_path: str,
+                 site: str,
+                 ext: str = '.csv'):
         BaseTask.__init__(self)
         self.labeled_data_dir = labeled_data_dir
-        self.input_path=input_path
-        self.ext=ext
+        self.input_path = input_path
+        self.ext = ext
         self.prior = [0.8, 0.2]
         self.alpha_value = 0.2
         self.site = site

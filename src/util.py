@@ -127,7 +127,7 @@ class ReviewUtil:
         return False
 
     @staticmethod
-    def get_all_valid_path(input_path, ext=".csv"):
+    def get_all_valid_path(input_path: str, ext: str = ".csv"):
         files = ReviewUtil.get_list_of_files(input_path)
         valid_file_paths = []
         for p in files:
