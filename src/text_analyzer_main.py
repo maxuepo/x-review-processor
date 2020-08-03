@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import argparse
-from repeated_review_detection import ReviewDedupTask
+from similary_reviews.repeated_review_detection import ReviewDedupTask
 from template_remover.template_like_doc_processing import TemplateRemovalTask
 from classifier.ReviewClassifier import ReviewClassifyer
 from report.report import Report
@@ -8,7 +8,7 @@ from common.base_task import BaseTask
 from pathlib import Path
 
 
-class ZYJ(BaseTask):
+class TextAnlysisMain(BaseTask):
     def __init__(self, review_json_input_path: str, site: str) -> None:
         BaseTask.__init__(self)
         self.site = site

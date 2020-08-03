@@ -1,12 +1,12 @@
 from __future__ import print_function
 from sklearn.feature_extraction.text import TfidfVectorizer
-from util import ReviewUtil
+from common.util import ReviewUtil
 from sklearn.naive_bayes import MultinomialNB
 import pandas as pd
 import os
 from pathlib import Path
 import _pickle as cPickle
-from topicscore import TopicVerification
+from topic.topicscore import TopicVerification
 from common.base_task import BaseTask
 
 

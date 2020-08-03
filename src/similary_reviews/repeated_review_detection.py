@@ -1,12 +1,11 @@
 from __future__ import print_function
 from sklearn.feature_extraction.text import TfidfVectorizer
-from util import ReviewUtil
+from common.util import ReviewUtil
 import numpy as np
 import ntpath
 import pandas as pd
 import os
 from common.base_task import BaseTask
-import sys
 
 
 class ReviewDedupTask(BaseTask):

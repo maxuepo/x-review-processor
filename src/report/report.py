@@ -1,12 +1,12 @@
 from __future__ import print_function
-from util import ReviewUtil
+from common.util import ReviewUtil
 import os
 import json
 from datetime import datetime
 import pandas as pd
 from base_task import BaseTask
-from keeper import Keeper
-from zyj_temporal_analysis import ZYJTemporalAnalysis
+from temporal_analysis.zyj_temporal_analysis import ZYJTemporalAnalysis
+
 
 
 class Report(BaseTask):
@@ -253,7 +253,7 @@ class Report(BaseTask):
         review_scores_df.to_csv(outputfile_debug, sep='\t', index=False)
         self.logger.info("Report generation complete. Cleaning up.")
         try:
-            Keeper.clean(self.TEMP_FILE_EXTENSIONS, similar_review_path)
+            ReviewUtil.clean(self.TEMP_FILE_EXTENSIONS, similar_review_path)
         except TypeError:
             self.logger.error("Cannot remove {}".format(similar_review_path))
         self.logger.info("Clean up complete.")

@@ -4,7 +4,7 @@ from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 from common.base_task import BaseTask
-from util import ReviewUtil
+from common.util import ReviewUtil
 
 
 class TopicVerification(BaseTask):

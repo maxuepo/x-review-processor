@@ -1,4 +1,4 @@
-from util import ReviewUtil
+from common.util import ReviewUtil
 import pandas as pd
 from collections import Counter
 import numpy as np
@@ -7,10 +7,10 @@ import os
 
 
 class ZYJTemporalAnalysis:
-    def __init__(self, inputdir):
-        self.input_path = inputdir
-        self.threshold = 0.9999
-        self.num_day_thres = 100
+    def __init__(self, input_dir: str, threshold: float = 0.9999, num_day_thres: float = 100.):
+        self.input_path = input_dir
+        self.threshold = threshold
+        self.num_day_thres = num_day_thres
 
     @staticmethod
     def get_risks(df, prod_id):
@@ -104,5 +104,4 @@ class ZYJTemporalAnalysis:
             if not analysis_df.empty:
                 df_total.append(analysis_df)
         df_all = pd.concat(df_total)
-
         df_all.to_csv('/home/xuepo/dump.csv')
