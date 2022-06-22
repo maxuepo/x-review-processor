@@ -4,7 +4,7 @@ easydev==0.9.35
 jieba==0.39
 Jinja2>=2.10.1
 MarkupSafe==1.0
-numpy==1.13.3
+numpy==1.22.0
 pandas==0.21.0
 pexpect==4.2.1
 ptyprocess==0.5.2
