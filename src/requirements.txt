@@ -11,6 +11,6 @@ ptyprocess==0.5.2
 python-dateutil==2.6.1
 pytz==2017.3
 scikit-learn==0.19.1
-scipy==1.0.0
+scipy==1.10.0
 six==1.11.0
 sklearn==0.0
